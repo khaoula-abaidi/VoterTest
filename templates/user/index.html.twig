@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Users{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    {% if(users|length > 0) %}
+    <h1>Liste des Users ✅</h1>
+        {% for user in users %}
+            <ul>
+            <h3>{{ 'user n° '~user.id }}</h3>
+            <li>{{ user.username }}</li>
+            <li>{{ user.email }}</li>
+            </ul>
+        {% endfor %}
+    {% else %}
+    <h1>Vous n'avez pas de users</h1>
+    {% endif %}
+</div>
+{% endblock %}
